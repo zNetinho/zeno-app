@@ -1,0 +1,37 @@
+#:schema node_modules/@deco/workers-runtime/config-schema.json
+name = "netinho-app"
+main = "main.ts"
+compatibility_date = "2025-06-17"
+compatibility_flags = [ "nodejs_compat" ]
+scope = "team-one"
+
+[assets]
+directory = "./view-build"
+binding = "ASSETS"
+
+[deco]
+workspace = "team-one"
+enable_workflows = true
+local = false
+
+[[deco.bindings]]
+name = "GMAIL_N1"
+type = "mcp"
+integration_id = "i:8aa95a06-9b0f-4866-adf0-81494e0bae8b"
+
+[[migrations]]
+tag = "v1"
+new_classes = [ "Workflow" ]
+
+[durable_objects]
+[[durable_objects.bindings]]
+name = "DECO_CHAT_WORKFLOW_DO"
+class_name = "Workflow"
+
+[[rules]]
+type = "Text"
+globs = [ "**/*.sql" ]
+fallthrough = true
+
+[vars]
+DECO_SELF_URL = "https://localhost-d97d53c8.deco.host/mcp"
