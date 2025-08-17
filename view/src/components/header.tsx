@@ -1,11 +1,10 @@
-import { useOptionalUser, useUser } from "@/lib/hooks";
+import { useOptionalUser } from "@/lib/hooks";
 import { DecoButton } from "./deco-button";
 
 
 export function Header() {
 
   const { data: user } = useOptionalUser();
-  console.log(user);
   return (
     <header className="bg-white shadow-sm border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

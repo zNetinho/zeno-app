@@ -358,7 +358,6 @@ export const createRegistrarGastoConfirmadoTool = (env: Env) =>
         // Temporariamente removendo autenticação para debug
         // await getAuthenticatedUser(env);
 
-        console.log("Dados recebidos (confirmado):", context.dados);
 
         const novoRegistro = await db.insert(gastosTable).values({
           tipo: context.dados.tipo,
@@ -673,7 +672,6 @@ export const createRegistrarGastoTool = (env: Env) =>
         // Temporariamente removendo autenticação para debug
         // await getAuthenticatedUser(env);
 
-        console.log("Dados recebidos:", context.dados);
 
         const novoRegistro = await db.insert(gastosTable).values({
           tipo: context.dados.tipo,
@@ -1126,7 +1124,6 @@ export const createConsultarGastosTool = (env: Env) =>
         const totalEntrada = gastos.reduce((sum, gasto) => sum + (gasto.tipo === 'entrada' ? gasto.valor : 0), 0);
         const totalGasto = gastos.reduce((sum, gasto) => sum + (gasto.tipo === 'gasto' ? gasto.valor : 0), 0);
         const total = totalEntrada - totalGasto;
-        console.log(totalEntrada, totalGasto, total);
         const totalGastos = gastos.length;
 
         const porCategoria = gastos.reduce((acc, gasto) => {

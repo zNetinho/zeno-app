@@ -9,15 +9,11 @@ export const getDb = async (env: Env) => {
   const db = drizzle(env);
   
   try {
-    console.log("🔄 Applying database migrations...");
     await migrateWithoutTransaction(db, migrations);
-    console.log("✅ Database migrations completed successfully");
   } catch (error) {
-    console.error("❌ Database migration failed:", error);
     
     // Fallback: create tables manually
     try {
-      console.log("🔄 Creating tables manually...");
       await db.run(`
         CREATE TABLE IF NOT EXISTS gastos (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -42,9 +38,7 @@ export const getDb = async (env: Env) => {
         )
       `);
       
-      console.log("✅ Manual table creation successful");
     } catch (manualError) {
-      console.error("❌ Manual table creation failed:", manualError);
       throw manualError;
     }
   }
