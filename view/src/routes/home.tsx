@@ -246,7 +246,7 @@ function HomePage() {
               </div>
             </div>
             
-            <Link to="/gastos">
+            <Link to="/">
               <Button className="bg-neutral-100 text-neutral-800 hover:bg-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group border border-neutral-300">
                 <span>Acessar Dashboard</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -268,7 +268,7 @@ function HomePage() {
 
 export default (parentRoute: RootRoute) =>
   createRoute({
-    path: "/",
+    path: "/todos",
     component: HomePage,
     getParentRoute: () => parentRoute,
   });

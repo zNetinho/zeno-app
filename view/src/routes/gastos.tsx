@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 export default (rootRoute: RootRoute) => createRoute({
   getParentRoute: () => rootRoute,
   component: GastosPage,
-  path: "/gastos",
+  path: "/",
 });
 
 function GastosPage() {

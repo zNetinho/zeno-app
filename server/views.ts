@@ -15,6 +15,6 @@ export const views: CreateMCPServerOptions<Env, typeof StateSchema>["views"] =
     {
         title: "Gastos",
         icon: "money", // Available icons: https://fonts.google.com/icons?selected=Material+Icons
-        url: "https://netinho-app.deco.page/gastos",
+        url: "https://netinho-app.deco.page",
     },
   ];

@@ -28,13 +28,13 @@ export function Header() {
                   href="/"
                   className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
                 >
-                  TODO
+                  Gestão de Gastos
                 </a>
                 <a
-                  href="/gastos"
+                  href="/todos"
                   className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
                 >
-                  Gastos
+                  TODO
                 </a>
                 <a
                   href="/profile"
