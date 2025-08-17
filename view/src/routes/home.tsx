@@ -6,6 +6,10 @@ import {
   LogIn,
   Sparkles,
   Trash2,
+  Receipt,
+  TrendingUp,
+  Camera,
+  ArrowRight,
 } from "lucide-react";
 import {
   useDeleteTodo,
@@ -16,6 +20,7 @@ import {
 } from "@/lib/hooks";
 import { Button } from "@/components/ui/button";
 import { DecoButton } from "@/components/deco-button";
+import { Link } from "@tanstack/react-router";
 
 function PublicTodoList() {
   const { data: todos } = useListTodos();
@@ -176,8 +181,8 @@ function HomePage() {
   const user = useOptionalUser();
 
   return (
-    <div className="bg-slate-900 min-h-screen flex items-center justify-center p-6">
-      <div className="max-w-4xl mx-auto w-full">
+    <div className="bg-neutral-600 min-h-screen flex items-center justify-center p-6">
+      <div className="max-w-4xl mx-auto w-full h-full">
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
           <div className="flex items-center gap-3">
@@ -199,7 +204,7 @@ function HomePage() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid md:grid-cols-2 gap-8 min-h-[400px]">
+        <div className="grid md:grid-cols-2 gap-8 min-h-[200px]">
           {/* Left Column - Public Content */}
           <div>
             <PublicTodoList />
@@ -210,7 +215,45 @@ function HomePage() {
             <LoggedInContent />
           </div>
         </div>
-
+        {user && (
+          <div className="bg-neutral-800 border border-neutral-600 rounded-xl p-6 text-center shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+            <div className="flex items-center justify-center mb-4">
+              <div className="bg-neutral-700 p-3 rounded-full">
+                <Receipt className="w-8 h-8 text-neutral-100" />
+              </div>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-neutral-100 mb-2">
+              Zeno App - Gestão Financeira
+            </h2>
+            
+            <p className="text-neutral-300 mb-6 text-sm">
+              Sistema inteligente de controle de gastos com OCR e IA
+            </p>
+            
+            <div className="grid grid-cols-3 gap-4 mb-6">
+              <div className="bg-neutral-700 rounded-lg p-3 border border-neutral-600">
+                <Camera className="w-5 h-5 text-neutral-200 mx-auto mb-1" />
+                <p className="text-xs text-neutral-300">OCR Inteligente</p>
+              </div>
+              <div className="bg-neutral-700 rounded-lg p-3 border border-neutral-600">
+                <TrendingUp className="w-5 h-5 text-neutral-200 mx-auto mb-1" />
+                <p className="text-xs text-neutral-300">Análise IA</p>
+              </div>
+              <div className="bg-neutral-700 rounded-lg p-3 border border-neutral-600">
+                <Sparkles className="w-5 h-5 text-neutral-200 mx-auto mb-1" />
+                <p className="text-xs text-neutral-300">Insights</p>
+              </div>
+            </div>
+            
+            <Link to="/gastos">
+              <Button className="bg-neutral-100 text-neutral-800 hover:bg-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 group border border-neutral-300">
+                <span>Acessar Dashboard</span>
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        )}
         {/* Footer */}
         <div className="mt-12 pt-6 border-t border-slate-700">
           <p className="text-xs text-slate-500 text-center">
