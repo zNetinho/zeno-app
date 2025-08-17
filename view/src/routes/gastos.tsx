@@ -8,7 +8,7 @@ import {
 } from "@/components/gastos";
 import { useDeleteGasto, useListarGastos, useOptionalUser } from "@/lib/hooks";
 import { createRoute, type RootRoute } from "@tanstack/react-router";
-import { Plus } from "lucide-react";
+import { Plus, Receipt, Sparkles, Camera, TrendingUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default (rootRoute: RootRoute) => createRoute({
@@ -177,16 +177,49 @@ function GastosPage() {
           <ChatWidget onSendMessage={handleChatMessage} />
         </div>
       ) : (
-        <div className="w-full h-max flex flex-col items-center justify-center">
-          <h2 className="text-sm font-medium text-slate-400">
-            The content below is only visible for authenticated users
-          </h2>
-          <div className="bg-slate-800 border border-slate-700 rounded-lg p-4 text-center">
-            <h3 className="text-sm font-medium text-white mb-2">Login Required</h3>
-            <p className="text-xs text-slate-400 mb-3">
-              Sign in to access authenticated features.
+        <div className="w-full h-max flex flex-col items-center justify-center min-h-[60vh]">
+          <div className="bg-neutral-800 border border-neutral-600 rounded-xl p-8 text-center shadow-2xl max-w-md mx-auto">
+            <div className="flex items-center justify-center mb-6">
+              <div className="bg-white p-4 rounded-full">
+                <img src="/logo.png" alt="Zeno App" className="w-14 h-14 object-contain bg-white rounded-full" />
+              </div>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-neutral-100 mb-3">
+              Acesso ao Dashboard
+            </h2>
+            
+            <p className="text-neutral-300 mb-6 text-sm leading-relaxed">
+              Faça login para acessar o sistema completo de gestão financeira com OCR inteligente e análise de IA.
             </p>
-            <DecoButton />
+            
+            <div className="grid grid-cols-1 gap-3 mb-6">
+              <div className="bg-neutral-700 rounded-lg p-3 border border-neutral-600">
+                <div className="flex items-center gap-3">
+                  <Camera className="w-5 h-5 text-neutral-200" />
+                  <p className="text-sm text-neutral-300">Upload de comprovantes com OCR</p>
+                </div>
+              </div>
+              <div className="bg-neutral-700 rounded-lg p-3 border border-neutral-600">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="w-5 h-5 text-neutral-200" />
+                  <p className="text-sm text-neutral-300">Análise inteligente de gastos</p>
+                </div>
+              </div>
+              <div className="bg-neutral-700 rounded-lg p-3 border border-neutral-600">
+                <div className="flex items-center gap-3">
+                  <Sparkles className="w-5 h-5 text-neutral-200" />
+                  <p className="text-sm text-neutral-300">Insights e relatórios automáticos</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-3">
+              <DecoButton />
+              <p className="text-xs text-neutral-400">
+                Acesso seguro e gratuito
+              </p>
+            </div>
           </div>
         </div>
       )}
